@@ -16,5 +16,37 @@
  
  .toppage h3 {
   margin-bottom: 80px;
+ } 
+ 
+ /* 商品検索ページ */
+ .search {
+  margin-bottom: 20px;
  }
+
+ .item .panel-body {
+   height: 120px;
+ }
+ 
+ .item .panel-heading {
+  height: 250px;
+ }
+ 
+ .item .panel-heading img {
+    height: 100%;
+    max-width: 100%;
+ }
+ 
+ p.item-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+ }
+ 
+ .item .buttons form {
+  display: inline-block;
+  margin: 0 5px;
+ }
+ }
+ 
  

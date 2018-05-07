@@ -1,0 +1,38 @@
+<div class="row">
+   <% user=@institutionmicropost.user %>
+   <% institution=@institutionmicropost.institution %>
+  <aside class="col-xs-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+     
+      <h3 class="panel-title"><%=user.name %></h3>
+    </div>
+    <div class="panel-body">
+      <img class="media-object img-rounded img-responsive" src="<%= gravatar_url(user, { size: 500}) %>" alt="">
+    </div>
+  </div>
+  </aside> 
+  <div class="col-xs-8">
+    <table class="table table-bordered">
+      <tr>
+        <td class="text-center"><%= institution.name %>(<%= institution.location %>)</td>
+      </tr>
+      <tr>
+        <td class="text-center"><a href= "<%= institution.url %>"><%= institution.url %></td>
+      </tr>
+    </table>
+    
+    <div class=user-institutionmicropost>
+      <div class="form-group">
+        <%= form_for(@institutionmicropost, url: institutionmicropost_path( @institutionmicropost) ) do |f| %>
+          <%= f.text_area :content, class: "form-control", rows: 5  %>
+      　   <div class="text-center">
+            <%= f.submit 'この内容で編集', class: "text-center btn btn-primary btn-lg"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+ 

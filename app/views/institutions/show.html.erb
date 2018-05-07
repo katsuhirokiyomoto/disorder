@@ -1,0 +1,33 @@
+<div class="text-center">
+  <h1>施設詳細</h1>
+</div>
+
+<div class="institution-detail">
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <tr>
+        <td>施設名</td>
+        <td><%= @institution.name %></td>
+      </tr>
+      <tr>
+        <td>都道府県</td>
+        <td><%= @institution.location %></td>
+      </tr>
+      <tr>
+        <td>URL</td>
+        <td><a href= "<%= @institution.url %>"><%= @institution.url %></td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="text-center">
+    <% unless current_user.institutionmicroposts.find_by(institution_id: params[:institution_id]) %>
+      <%= link_to 'この施設について投稿する', new_institution_institutionmicropost_path(@institution), class: "btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
+    <%= render 'institutionmicroposts/institutionmicroposts', institution: @institution %>
+  <div class="text-center">
+    <%= link_to '施設一覧表に戻る', institutions_path, class: "btn btn-default btn-lg" %>
+  </div>
+</div>
+

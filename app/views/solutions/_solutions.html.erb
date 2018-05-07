@@ -1,0 +1,19 @@
+<h1 class="text-center">お悩み解決案一覧</h1>
+<div class="solution-list">
+ <div class="table-responsive ">
+   <table class="table table-bordered">
+     <tr>
+       <td>投稿者名</td>
+       <td>投稿日</td>
+       <td>タイトル</td>
+     </tr>
+   <% solutions.each do |solution| %>
+     <tr>
+       <td><%= solution.follower.name %></td>
+       <td><%= solution.created_at %></td>
+       <td><%= link_to solution_path(solution) do %><%= solution.title %><% end %></td>
+     </tr>
+   <% end %>
+   </table>
+ </div>
+</div>

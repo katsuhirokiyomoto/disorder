@@ -1,0 +1,24 @@
+<h1=text-center>投稿内容</h1>
+<div class="insutitutionmicroposts-list">
+ <div class="table-responsive ">
+   <table class="table table-bordered">
+     <tr>
+       <td>投稿者名</td>
+       <td>投稿日</td>
+       <td>内容</td>
+       
+       
+     </tr>
+   <% microposts=institution.institutionmicroposts %>
+   <% microposts.each do |micropost| %>
+     <tr class="institutionmicropost-detail" >
+       <td><%= micropost.user.name %></td>
+       <td><%= micropost.created_at %></td>
+       <td><%= link_to institutionmicropost_path(micropost) do %><%= micropost.content %><% end %></td>
+     </tr>
+   <% end %>
+   </table>
+ </div>
+</div>
+
+ 

@@ -1,0 +1,21 @@
+<h1 class="text-center">お悩み内容一覧</h1>
+<div class="insutitution-list">
+ <div class="table-responsive ">
+   <table class="table table-bordered">
+     <tr>
+       <td>投稿者名</td>
+       <td>投稿日</td>
+       <td>タイトル</td>
+     </tr>
+   <% microposts=@problemmicroposts %>
+   <% microposts.each do |micropost| %>
+     <tr>
+       <td><%= micropost.user.name %></td>
+       <td><%= micropost.created_at %></td>
+       <td><%= link_to problemmicropost_path(micropost) do %><%= micropost.title %><% end %></td>
+     </tr>
+   <% end %>
+   </table>
+ </div>
+</div>
+

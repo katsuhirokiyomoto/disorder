@@ -1,0 +1,21 @@
+<h1>おすすめ施設</h1>
+<div class="insutitution-list">
+ <div class="table-responsive ">
+   <table class="table table-bordered">
+     <tr>
+       <td>施設名</td>
+       <td>都道府県</td>
+       <td>URL</td>
+     </tr>
+   <% @institutions.each do |institution| %>
+     <tr>
+       <td><%= link_to institution_path(institution) do %><%= institution.name %><% end %></td>
+       <td><%= institution.location %></td>
+       <td><a href= "<%= institution.url %>"><%= institution.url %></td>
+     </tr>
+   <% end %>
+   </table>
+ </div>
+</div>
+
+

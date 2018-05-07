@@ -1,0 +1,39 @@
+<div class="row">
+   <% user=@institutionmicropost.user %>
+   <% institution=@institutionmicropost.institution %>
+  <aside class="col-xs-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+     
+      <h3 class="panel-title"><%= user.name %></h3>
+    </div>
+    <div class="panel-body">
+      <img class="media-object img-rounded img-responsive" src="<%= gravatar_url(user, { size: 500}) %>" alt="">
+    </div>
+  </div>
+  </aside> 
+  <div class="col-xs-8">
+    <table class="table table-bordered">
+      <tr>
+        <td class="text-center"><%= institution.name %>(<%= institution.location %>)</td>
+      </tr>
+      <tr>
+        <td class="text-center"><a href= "<%= institution.url %>"><%= institution.url %></td>
+      </tr>
+    </table>
+    
+    <div class=user-institutionmicropost>
+      <div class="form-group">
+        <p class="form-control"><%= @institutionmicropost.content %></p>
+      </div>
+    </div>
+    <div>
+      <%= link_to '詳細ページに戻る', institution_path(institution), class: 'btn btn-default' %>
+      <% if current_user==user %>
+      <%= link_to '編集する', edit_institutionmicropost_path(@institutionmicropost), class: 'btn btn-primary' %>
+      <%= link_to '削除する', institutionmicropost_path(@institutionmicropost), method: :delete, data: { confirm:'本当に排除してもよろしいでしょうか?'}, class: 'btn btn-danger' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
